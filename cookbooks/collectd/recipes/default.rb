@@ -106,6 +106,8 @@ package 'dev-perl/HTML-Parser' do
   version '3.710.0-r1'
 end
 
+# TODO: move this to the memcached recipe
+# so that the collectd agent is run only if the memcached recipe is installed
 memcached = ['solo','app_master','app'].include?(node.dna['instance_role'])
 managed_template "/etc/engineyard/collectd.conf" do
   owner 'root'
